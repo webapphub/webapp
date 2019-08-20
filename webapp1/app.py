@@ -8,7 +8,7 @@ import sqlite3
 app=Flask(__name__)
 
 
-app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///database7.db"
+app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///database.db"
 db = SQLAlchemy(app)
 
 
@@ -32,7 +32,7 @@ db.create_all()
 
 def index():
 	if request.method=='POST':
-		conn=sqlite3.connect('database7.db')
+		conn=sqlite3.connect('database.db')
 		c=conn.cursor()
 		userDetails=request.form
 		main=userDetails['mainprocess']
