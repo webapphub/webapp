@@ -23,7 +23,7 @@ class Process(db.Model):
 
 #	att=db.relationship('Attribute',backref='att')
 	def __repr__(self):
-		return '<process %r>' % (self.process_name)
+		return self.process_name
 class Processview(ModelView):
 	form_excluded_columns=('subprocess','employee','attribute')
 
@@ -34,7 +34,7 @@ class Subprocess(db.Model):
 	prime_id=db.Column(db.Integer,db.ForeignKey('process.id'))
 	#here we are also required to specify the nature of the value atribute expects.
 	def __repr__(self):
-		return '<Subprocess %r>' % (self.subprocess_name)
+		return self.subprocess_name
 class Subprocessview(ModelView):
 	form_excluded_columns=('attribute')
 
@@ -45,7 +45,7 @@ class Employee(db.Model):
 	attribute_filled=db.relationship('Attribute',backref='Employee name')
 	task_id=db.Column(db.Integer,db.ForeignKey('process.id'))
 	def __repr__(self):
-		return '<Employee %r>' % (self.employee_name)
+		return self.employee_name
 class Employeeview(ModelView):
 	form_excluded_columns=('attribute_filled')
 
@@ -57,7 +57,7 @@ class Attribute(db.Model):
 	pro_id=db.Column(db.Integer,db.ForeignKey('process.id'),nullable=False)
 #	att_id=db.Column(db.Integer,db.ForeignKey('process.id'),nullable=False)
 	def __repr__(self):
-		return '<Set %r>' % (self.id) 
+		return self.id 
 db.create_all()
 
 @app.route('/',methods=['GET','POST'])
@@ -90,6 +90,3 @@ admin.add_view(ModelView(Attribute,db.session))
 
 if __name__ == '__main__':
    app.run(debug = True)
-
-
-
