@@ -1,0 +1,31 @@
+<html>
+  <body>
+    <h1>Enter Your ID</h1>
+    <form method="POST" action="/employee">
+        <input type="text" name="employee_id">
+        <input type="submit">
+    </form>
+<h3>Hi</h3>
+<p>{{emp.employee_id}}</p>
+<h3>Attributes to be filled</h3>
+
+<p>{{attribute.attribute_1_name}}</p>
+
+<form method="POST" action="./update_attribute" style="display: inline">
+<input type="hidden" value="{{emp.employee_id}}" name="emp_id">
+              <input type="hidden" value="{{attribute.attribute_1_value}}" name="oldtitle1">
+              <input type="text" value="{{attribute.attribute_1_value}}" name="newtitle1">
+<p>{{attribute.attribute_2_name}}</p>
+<input type="hidden" value="{{attribute.attribute_2_value}}" name="oldtitle2">
+              <input type="text" value="{{attribute.attribute_2_value}}" name="newtitle2">
+              <input type="submit" value="Update">
+            </form>
+
+
+
+
+
+
+
+  </body>
+</html>

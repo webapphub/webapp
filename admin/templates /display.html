@@ -1,0 +1,45 @@
+<html>
+  <body>
+    <h1>Enter Process name</h1>
+    <form method="POST" action="/display">
+        <input type="text" name="mainprocess_name">
+        <input type="submit">
+    </form>
+  <table>   
+     {% for process in allprocess %}
+      <p>{{process.process_name}}</p>
+    {% endfor %}
+    </table>
+<h3>Main process</h3>
+<p>{{details.mainprocess}}</p>
+
+<form method="POST" action="./update" style="display: inline">
+              <input type="hidden" value="{{details.mainprocess}}" name="oldtitle">
+              <input type="text" value="{{details.mainprocess}}" name="newtitle">
+              <input type="submit" value="Update">
+            </form>
+
+
+<h3>Sub  process</h3>
+<p>{{details.subprocess}}</p>
+
+<h3>Employee Name</h3>
+<p>{{details.employee_name}}</p>
+
+<h3>Employee Id</h3>
+<p>{{details.employee_id}}</p>	
+
+<h3>Attribute 1 name</h3>
+<p>{{details.attribute_1_name}}</p>	
+
+<h3>value</h3>
+<p>{{details.attribute_1_value}}</p>	
+
+<h3>Attribute 2 name</h3>
+<p>{{details.attribute_2_name}}</p>	
+
+<h3>Value</h3>
+<p>{{details.attribute_2_value}}</p>	
+
+  </body>
+</html>

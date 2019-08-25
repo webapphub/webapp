@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <h1>Enter Your ID</h1>
+    <form method="POST" action="/employee">
+        <input type="text" name="employee_id">
+        <input type="submit">
+    </form>
+
+<h3>Hi</h3>
+
+<p>{{emp.employee_name}}</p>
+<h3>Attributes to be filled</h3>
+{% if attribute %}
+{%for attr in attribute%}
+<tr>
+<td>
+<p>{{attr.value}}</p>
+</td>
+<td>
+ <form method="POST" action="./add" style="display: inline">
+<input type="hidden" value="{{attr.pro_id}}" name="pro_id">
+<input type="hidden" value="{{attr.sub_id}}" name="sub_id">
+<input type="hidden" value="{{attr.emp_id}}" name="emp_id">
+<input type="hidden" value="{{attr.value}}" name="attr_name">
+              <input type="text" name="newvalue">
+              <input type="submit" value="add">
+</form>
+</td>
+</tr>
+{% endfor %}
+
+{% endif %}
+
+
+  </body>
+</html>
